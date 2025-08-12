@@ -25,6 +25,8 @@ def init_db():
     conn.commit()
     conn.close()
 
+init_db()
+
 # Store token data in DB
 def store_token(id_value, token_data):
     expires_in = token_data.get("expires_in")
@@ -88,5 +90,4 @@ def oauth_token_session_id(session_id):
     return jsonify({"error": "Token not found"}), 404
 
 if __name__ == "__main__":
-    init_db()
     app.run(host="0.0.0.0", port=5000)
